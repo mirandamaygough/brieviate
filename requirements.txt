@@ -1,0 +1,9 @@
+flask
+flask-login
+flask-mail
+flask-sqlalchemy
+flask-migrate
+flask-whooshalchemy
+flask-wtf
+flask-babel
+coverage
