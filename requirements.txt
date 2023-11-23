@@ -6,4 +6,6 @@ flask-migrate
 flask-whooshalchemy
 flask-wtf
 flask-babel
+flask-security
+werkzeug-security
 coverage
