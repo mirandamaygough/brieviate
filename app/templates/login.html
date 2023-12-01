@@ -9,26 +9,21 @@
     </div>
 {% endif %}
 {% endwith %}
-<form method="POST" action="/login">
-  <h2>Login</h2>
-  <form method="POST" action="/login">
-    <div class="field">
-      <div class="control">
-          <input type="email" name="email" placeholder="Your Email" autofocus="">
-      </div>
-  </div>
-
-  <div class="field">
-      <div class="control">
-          <input type="password" name="password" placeholder="Your Password">
-      </div>
-  </div>
-  <div class="field">
-      <label class="checkbox">
-          <input type="checkbox" name="remember">
-          Remember me
-      </label>
-  </div>
-  <button>Login</button>
-</form>
+<div class="form-container container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-group">
+                <h2>Login</h2>
+                <form class="main-form" action="/login" method="POST" name="login" autocomplete="off">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group main-form">
+                        {{ form.email(class="form-group input", placeholder=form.email.label.text) }}
+                        {{ form.password(class="form-group input", placeholder=form.password.label.text) }}
+                    </div>
+                    {{ form.submit (class="btn btn-success") }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

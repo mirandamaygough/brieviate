@@ -1,0 +1,113 @@
+/* css formatting for custom elements */
+
+
+
+.navbar {
+    backdrop-filter: blur(5px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.navbar-item {
+    margin: 0 10px;
+    list-style: none;
+}
+
+.navbar-item button {
+    border: none;
+    border-radius: 30px;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-item button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff; 
+    cursor: pointer;
+}
+
+.form-container {
+    background-color: rgba(240, 240, 240, 0.8); 
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.form-container h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+.form-group input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #78e2b0;
+}
+
+.form-group input[type="submit"] {
+    padding: 10px;
+    background-color: #31d386;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #78e2b0;
+}
+
+.rating-stars {
+    display: inline-block;
+}
+.rating-stars span {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+}
+.rating-stars span:hover,
+.rating-stars span.active {
+    color: #ffcc00;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: #78e2b0;
+}

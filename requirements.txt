@@ -8,3 +8,4 @@ flask-wtf
 flask-babel
 flask-security
 coverage
+email-validator

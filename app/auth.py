@@ -3,23 +3,26 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from app import app, db
 from .models import User
+from .forms import LoginForm, RegisterForm
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login')
 def login():
-    return render_template('login.html')
+    form=LoginForm()
+    return render_template('login.html', form=form)
 
 @auth.route('/login', methods=['POST'])
 def login_post(): 
-    email=request.form.get('email')
-    password=request.form.get('password')
-    remember=True if request.form.get('remember') else False
+    form=LoginForm()
+    if form.validate_on_submit():
+        email=form.email.data
+        password=form.password.data
     user=User.query.filter_by(email=email).first()
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
-    login_user(user, remember=remember)
+    login_user(user)
     return redirect(url_for('views.profile'))
 
 @auth.route('/logout')
@@ -30,13 +33,16 @@ def logout():
 
 @auth.route('/register')
 def register(): 
-    return render_template('register.html')
+    form=RegisterForm()
+    return render_template('register.html', form=form)
 
 @auth.route('/register', methods=['POST'])
 def register_post(): 
-    email=request.form.get('email')
-    username=request.form.get('username')
-    password=request.form.get('password')
+    form=RegisterForm()
+    if form.validate_on_submit():
+        email=form.email.data
+        username=form.username.data
+        password=form.password.data
     user=User.query.filter_by(email=email).first()
     if user:
         flash('Email address already exists.')

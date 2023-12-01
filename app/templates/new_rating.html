@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div>
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+<div class="form-container container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-group">
+                <h2>New rating</h2>
+                <form class="main-form" action="/new_rating" method="POST" name="new_rating" autocomplete="off">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group main-form">
+                        {{ form.cheese(class="form-group input", placeholder=form.cheese.label.text) }}
+                        {{ form.brand(class="form-group input", placeholder=form.brand.label.text) }}
+                        <div class="rating-stars">
+                            {{  form.rating.label }}
+                            <span data-value="1">&#9733;</span>
+                            <span data-value="2">&#9733;</span>
+                            <span data-value="3">&#9733;</span>
+                            <span data-value="4">&#9733;</span>
+                            <span data-value="5">&#9733;</span>
+                        </div>
+                        <input type="hidden" id="rating-value" name="rating" value="{{ selected_rating }}">
+                        <br><br>
+                        {{ form.review (class="form-group input", placeholder=form.review.label.text) }}
+                    </div>
+                    {{ form.submit (class="btn btn-success") }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.rating-stars span').click(function() {
+            var value = $(this).attr('data-value');
+            $('#rating-value').val(value);
+            $('.rating-stars span').removeClass('active');
+            $(this).addClass('active').prevAll().addClass('active');
+        });
+    });
+</script>
+
+{% endblock %}
