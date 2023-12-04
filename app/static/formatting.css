@@ -32,6 +32,14 @@
     cursor: pointer;
 }
 
+.page-title {
+    color: #ffffff;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 .form-container {
     background-color: rgba(240, 240, 240, 0.8); 
     backdrop-filter: blur(5px);
@@ -55,14 +63,13 @@
     margin-bottom: 15px;
 }
 
-
-.form-group input {
+.form-group input, select, textarea{
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-.form-group input:focus {
+.form-group input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: #78e2b0;
 }
@@ -93,21 +100,41 @@
 }
 
 .card {
-    background-color: #fff;
+    background-color: rgba(240, 240, 240, 0.8); 
+    backdrop-filter: blur(5px);
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .card-body {
     padding: 20px;
 }
 
-.card-title {
-    font-size: 20px;
+.card-text {
+    margin-bottom: 10px;
+}
+
+.card-text-username {
+    font-size: 17px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
+.card-text-cheese {
+    font-size: 20px;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.review-stars {
+    color: gold;
+    font-size: 30px;
+}
+
+.edit-review-button, .delete-review-button {
+    margin-right: 10px;
+}
+
 body {
     background-color: #78e2b0;
+    font-family: 'Nunito';
 }

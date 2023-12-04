@@ -1,0 +1,47 @@
+Cheddar
+Red Leicester
+Mozzarella
+Parmesan
+Brie
+Stilton
+Camembert
+Feta
+Wensleydale
+Gouda
+Edam
+Halloumi
+Ricotta
+Emmental
+Roquefort
+Gorgonzola
+Manchego
+Jarlsberg
+Goat's Cheese
+Blue Cheese
+Cheshire
+Havarti
+Colby
+Monterey Jack
+Danish Blue
+Fontina
+Taleggio
+Pecorino
+Asiago
+Grana Padano
+Gruyère
+Morbier
+Beaufort
+Appenzeller
+Bel Paese
+Saint Agur
+Mimolette
+Raclette
+Paneer
+Comté
+Munster
+Tomme de Savoie
+Ossau-Iraty
+Reblochon
+Shropshire Blue
+Caerphilly
+Double Gloucester
