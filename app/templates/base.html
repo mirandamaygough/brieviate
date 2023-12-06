@@ -7,15 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/formatting.css">
+    <!-- custom stylesheet and font -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='formatting.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
-
-   <!-- menu CSS -->
-    <style>
-    ul#menu li {
-        display:inline;
-      }
-    </style>
   
      <!-- set page title -->
         <title>{{ title }}</title>
@@ -29,18 +23,27 @@
             <!-- links -->
             <ul class="navbar-nav">
               <li class="navbar-item">
-                <button> <a class="nav-link" href="{{ url_for('views.index') }}">Home</a></button>
+                <button> <a class="nav-link" href="{{ url_for('ratings.index') }}">Home</a></button>
               </li>
               {% if current_user.is_authenticated %}
-              <li class="navbar-item">
-                <button> <a class="nav-link" href="{{ url_for('views.profile') }}">Profile</a></button>
+              <li class="navbar-item dropdown">
+                <a class="nav-link dropdown-toggle navbar-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Profile
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="nav-link" href="{{ url_for('ratings.liked_ratings') }}">Liked Ratings</a>
+                  <a class="nav-link" href="{{ url_for('ratings.user_profile') }}">Your Ratings</a>
+                </div>
               </li>
               <li class="navbar-item">
-                <button> <a class="nav-link" href="{{ url_for('views.new_rating') }}">New Rating</a></button>
+                <button> <a class="nav-link" href="{{ url_for('ratings.new_rating') }}">New Rating</a></button>
               {% endif %}
               </li>
               <li class="navbar-item">
-                <button> <a class="nav-link" href="{{ url_for('views.feed') }}">Feed</a></button>
+                <button> <a class="nav-link" href="{{ url_for('ratings.all_ratings') }}">All Ratings</a></button>
+              </li>
+              <li class="navbar-item">
+                <button> <a class="nav-link" href="{{ url_for('cheeses.all_cheeses') }}">Cheeses</a></button>
               </li>
               <li class="navbar-item">
               {% if not current_user.is_authenticated %}
@@ -60,9 +63,9 @@
         </nav>
 
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6IXHMdZRc6Uc5Jofs2XtkJwbIxIy1Tj+IIuW+0OksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
         <!--page content-->
         <div class="container-fluid">

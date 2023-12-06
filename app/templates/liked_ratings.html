@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <h1 class="page-title">Reviews</h1>
+    <h1 class="page-title">Your Liked Ratings</h1>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 {% for review in reviews %}
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-text-username"><a href="{{ url_for ('views.user_reviews', username=review.user) }}">@{{ review.user }}</a></h5>
-                        <h6 class="card-text-cheese">{{ review.cheese }}</h6>
-                        <p class="card-text">Brand: {{ review.brand }}</p>
+                        <p class="card-text-datetime">{{ review.date }}</p>
+                        <h5 class="card-text-username"><a href="{{ url_for ('ratings.user_ratings', username=review.user) }}">@{{ review.user }}</a></h5>
+                        <h6 class="card-text-cheese"><a href="{{ url_for ('cheeses.cheese_profile', cheese=review.cheese.lower().replace(' ', '-')) }}">{{ review.cheese }}</a></h6>
+                        <p class="card-text-brand">Brand: {{ review.brand }}</p>
                         <p class="card-text">Rating: 
                             {% for i in range(review.rating) %}
                             <span class="review-stars">&#9733;</span>
@@ -19,6 +20,10 @@
                             <span class="review-stars">&#9734;</span>
                         {% endfor %}
                         <p class="card-text">Review: {{ review.review }}</p>
+                        <button class="like-button" review-id="{{ review.id }}">
+                            &#129293;
+                        </button>
+                        <span id="likes-{{ review.id }}">{{ review.likes }}</span>
                     </div>
                 </div>
                 {% endfor %}
@@ -26,5 +31,5 @@
         </div>
     </div>
 </div>
-
+<script src="static/likes.js"></script>
 {% endblock %}

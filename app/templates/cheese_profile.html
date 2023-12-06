@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1 class="page-title">{{ cheese.name }}</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <form class="filter-select" method="GET" action="{{ url_for('cheeses.cheese_profile', cheese=cheese.name.lower().replace(' ', '-')) }}">
+                    {{ review_filter_form.filter_option.label }} {{ review_filter_form.filter_option }}
+                    {{ review_filter_form.submit (class="btn btn-success go-button") }}
+                </form>  
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-12">
+                {% for review in reviews %}
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text-datetime">{{ review.date }}</p>
+                        <h5 class="card-text-username"><a href="{{ url_for ('ratings.user_ratings', username=review.user) }}">@{{ review.user }}</a></h5>
+                        <p class="card-text-brand">Brand: {{ review.brand }}</p>
+                        <p class="card-text">Rating: 
+                            {% for i in range(review.rating) %}
+                            <span class="review-stars">&#9733;</span>
+                            {% endfor %}
+                            {% for i in range(5 - review.rating) %}
+                            <span class="review-stars">&#9734;</span>
+                        {% endfor %}
+                        <p class="card-text">Review: {{ review.review }}</p>
+                        <button class="like-button" review-id="{{ review.id }}">
+                            &#129293;
+                        </button>
+                        <span id="likes-{{ review.id }}">{{ review.likes }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='likes.js') }}"></script>
+{% endblock %}

@@ -1,4 +1,4 @@
-// add event listeners for buttons
+// add event listeners for edit buttons
 document.addEventListener('DOMContentLoaded', function() {
     var editReviewButtons = document.querySelectorAll('.edit-review-button');
     editReviewButtons.forEach(function(button){
@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// add event listeners for delete buttons
 document.addEventListener('DOMContentLoaded', function() {
     var deleteReviewButtons = document.querySelectorAll('.delete-review-button');
     deleteReviewButtons.forEach(function(button){
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// respond to edit button click
 function editButtonClicked(){
     // get review of button clicked and its id
     var reviewId=this.closest('.card').dataset.id;
@@ -29,6 +31,7 @@ function editButtonClicked(){
         .catch(error => console.error('Error:', error));
 }
 
+// respond to delete button click
 function deleteButtonClicked(){
     // get review of button clicked and its id
     var reviewId=this.closest('.card').dataset.id;

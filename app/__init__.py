@@ -13,17 +13,23 @@ migrate = Migrate(app, db)
 login_manager = LoginManager(app)  
 login_manager.login_view = 'auth.login'
 
-from app import views, models
+from app import auth, models, cheeses, ratings
+
+#from app import cheeses, models
 from .models import User
 from .get_cheeses import get_cheeses
 
-# blueprint for auth routes in our app
+# blueprint for auth routes
 from .auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 
-# blueprint for non-auth parts of app
-from .views import views as views_blueprint
-app.register_blueprint(views_blueprint)
+#blueprint for ratings routes
+from .ratings import ratings as ratings_blueprint
+app.register_blueprint(ratings_blueprint)
+
+# blueprint for cheese routes
+from .cheeses import cheeses as cheeses_blueprint
+app.register_blueprint(cheeses_blueprint)
 
 @login_manager.user_loader
 def load_user(user_id):

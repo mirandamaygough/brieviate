@@ -1,7 +1,5 @@
 /* css formatting for custom elements */
 
-
-
 .navbar {
     backdrop-filter: blur(5px); 
     display: flex;
@@ -15,7 +13,7 @@
     list-style: none;
 }
 
-.navbar-item button {
+.navbar-item button, .navbar-dropdown {
     border: none;
     border-radius: 30px;
     padding: 8px 16px;
@@ -31,6 +29,17 @@
     color: #ffffff; 
     cursor: pointer;
 }
+
+.dropdown-menu {
+    background-color: #333;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+
+  }
 
 .page-title {
     color: #ffffff;
@@ -74,7 +83,7 @@
     border-color: #78e2b0;
 }
 
-.form-group input[type="submit"] {
+.form-group input[type="submit"], .go-button, .go-button:hover {
     padding: 10px;
     background-color: #31d386;
     color: white;
@@ -113,6 +122,10 @@
     margin-bottom: 10px;
 }
 
+.card-text-datetime {
+    color: #818589;
+}
+
 .card-text-username {
     font-size: 17px;
     font-weight: bold;
@@ -125,6 +138,10 @@
     margin-bottom: 10px;
 }
 
+.card-text-brand {
+    margin-bottom: 0px;
+}
+
 .review-stars {
     color: gold;
     font-size: 30px;
@@ -134,7 +151,22 @@
     margin-right: 10px;
 }
 
+.like-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #31d386;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+  }
+
+.filter-select {
+    margin-bottom: 20px;
+}
+
 body {
     background-color: #78e2b0;
     font-family: 'Nunito';
+    font-size: 16px;
 }

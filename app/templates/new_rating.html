@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="form-group">
-                <form class="main-form" action="/new_rating" method="POST" name="new_rating" autocomplete="off">
+                <form class="main-form" action="/new_rating" method="POST" onsubmit="return validateReviewForm()" name="new_rating" autocomplete="off">
                     {{ form.hidden_tag() }}
                     <div class="form-group main-form">
                         {{ form.cheese(class="form-group select", placeholder=form.cheese.label.text) }}
@@ -39,5 +39,6 @@
 </div>
 
 <script src='static/stars.js'></script>
+<script src='static/validation.js'></script>
 
 {% endblock %}

@@ -1,3 +1,4 @@
+// respond to star clicks
 document.addEventListener('DOMContentLoaded', function() {
     // get initial rating value
     const current = parseInt(document.getElementById('rating-value').value); 
@@ -12,6 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
         star.addEventListener('click', function() {
             // get value of clicked star
             var value = this.getAttribute('data-value');
+            if (value == document.getElementById('rating-value').value) {
+                // if clicked star is same as current rating, set value to 0
+                value = 0;
+            }
             // set value of rating to clicked star value
             document.getElementById('rating-value').value = value;
             // remove active class from all stars
@@ -19,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 star.classList.remove('active');
             });
             // add active class to clicked star and all stars before it
-            this.classList.add('active');
             for (let i = 0; i < value; i++) {
                 stars[i].classList.add('active');
             };

@@ -24,7 +24,6 @@ class ReviewForm(FlaskForm):
         with app.app_context():
             cheeses = [(cheese.name) for cheese in Cheese.query.all()]
             return cheeses
-    print(choices)
     cheese = SelectField('Select a Cheese', choices=get_cheeses(), validators=[InputRequired()])
     brand = StringField('Brand', default='', validators=[InputRequired()])
     rating = IntegerField('Rating', default=0)
@@ -34,3 +33,7 @@ class ReviewForm(FlaskForm):
     def __init__(self, *args, **kwargs):
         super(ReviewForm, self).__init__(*args, **kwargs)
         self.choices = self.get_cheeses()
+
+class ReviewFilterForm(FlaskForm):
+    filter_option = SelectField('Filter by: ', choices=[('newest-first', 'Newest first'), ('oldest-first', 'Oldest first'), ('highest-rated', 'Highest rated'), ('lowest-rated', 'Lowest rated'), ('most-liked', 'Most liked')], default='newest-first')
+    submit = SubmitField('Go')

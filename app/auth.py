@@ -23,13 +23,13 @@ def login_post():
         flash('Please check your login details and try again.')
         return redirect(url_for('auth.login'))
     login_user(user)
-    return redirect(url_for('views.profile'))
+    return redirect(url_for('ratings.user_profile'))
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('views.index'))
+    return redirect(url_for('ratings.index'))
 
 @auth.route('/register')
 def register(): 
