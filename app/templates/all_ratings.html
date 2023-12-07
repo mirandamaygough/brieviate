@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <form class="filter-select" method="GET" action="{{ url_for('ratings.all_ratings') }}">
-                    {{ review_filter_form.filter_option.label }} {{ review_filter_form.filter_option }}
+                    {{ review_filter_form.filter_option.label (style="color:#ffffff") }} {{ review_filter_form.filter_option }}
                     {{ review_filter_form.submit (class="btn btn-success go-button") }}
                 </form>  
             </div>

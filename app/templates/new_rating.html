@@ -9,10 +9,10 @@
                 <form class="main-form" action="/new_rating" method="POST" onsubmit="return validateReviewForm()" name="new_rating" autocomplete="off">
                     {{ form.hidden_tag() }}
                     <div class="form-group main-form">
-                        {{ form.cheese(class="form-group select", placeholder=form.cheese.label.text) }}
-                        {{ form.brand(class="form-group input", placeholder=form.brand.label.text) }}
+                        {{ form.cheese(class="form-group select", **{'aria-label':form.cheese.label.text} ) }}
+                        {{ form.brand(class="form-group input", placeholder=form.brand.label.text, **{'aria-label':form.brand.label.text} ) }}
                         <div class="rating-stars">
-                            {{  form.rating.label }}
+                            {{  form.rating.label ( **{'aria-label':form.rating.label.text} ) }}
                             <span data-value="1">&#9733;</span>
                             <span data-value="2">&#9733;</span>
                             <span data-value="3">&#9733;</span>
@@ -21,7 +21,7 @@
                         </div>
                         <input type="hidden" id="rating-value" name="rating" value="{{ selected_rating }}">
                         <br><br>
-                        {{ form.review (class="form-group textarea", placeholder=form.review.label.text, rows=5) }}
+                        {{ form.review (class="form-group textarea", placeholder=form.review.label.text, rows=5, **{'aria-label':form.review.label.text} ) }}
                     </div>
                     {{ form.submit (class="btn btn-success") }}
                 </form>

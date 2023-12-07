@@ -22,7 +22,7 @@
     width: 150px;
     height: 40px;
     border-radius: 30px;
-    background-color: #31d386;
+    background-color: #00786c;
     border: none;
     cursor: pointer;
     align-items: center;
@@ -107,14 +107,14 @@
 
 .form-group input[type="submit"], .go-button, .go-button:hover {
     padding: 10px;
-    background-color: #31d386;
+    background-color: #9b3cd8;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .form-group input[type="submit"]:hover {
-    background-color: #78e2b0;
+    background-color: #9b3cd8;
 }
 
 .rating-stars {
@@ -181,7 +181,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #31d386;
+    background-color: #9b3cd8;
     border: none;
     cursor: pointer;
     align-items: center;
@@ -192,7 +192,7 @@
 }
 
 body {
-    background-color: #78e2b0;
+    background-color: #00786c;
     font-family: 'Nunito';
     font-size: 16px;
 }

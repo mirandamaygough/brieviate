@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <html lang="en">
     <!-- required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +24,7 @@
             <!-- links -->
             <ul class="navbar-nav">
               <li class="navbar-item">
-                <button> <a class="nav-link" href="{{ url_for('ratings.index') }}"><img class="logo-icon" src="static/logo.png" alt="logo"></a></button>
+                <button> <a class="nav-link" href="{{ url_for('ratings.index') }}"><img class="logo-icon" src="static/logo.png" alt="brieviate logo with a block of cheese"></a></button>
               </li>
               {% if current_user.is_authenticated %}
               <li class="navbar-item">
@@ -50,6 +51,7 @@
               <li class="navbar-item">
               {% endif %}
               {% if not current_user.is_authenticated %}
+              <li class="navbar-item">
                 <button> <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></button>
               </li>
               <li class="navbar-item">
