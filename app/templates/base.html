@@ -23,29 +23,32 @@
             <!-- links -->
             <ul class="navbar-nav">
               <li class="navbar-item">
-                <button> <a class="nav-link" href="{{ url_for('ratings.index') }}">Home</a></button>
+                <button> <a class="nav-link" href="{{ url_for('ratings.index') }}"><img class="logo-icon" src="static/logo.png" alt="logo"></a></button>
               </li>
               {% if current_user.is_authenticated %}
-              <li class="navbar-item dropdown">
-                <a class="nav-link dropdown-toggle navbar-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Profile
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="nav-link" href="{{ url_for('ratings.liked_ratings') }}">Liked Ratings</a>
-                  <a class="nav-link" href="{{ url_for('ratings.user_profile') }}">Your Ratings</a>
-                </div>
-              </li>
               <li class="navbar-item">
                 <button> <a class="nav-link" href="{{ url_for('ratings.new_rating') }}">New Rating</a></button>
-              {% endif %}
               </li>
+              <li class="navbar-item">
+                <button> <a class="nav-link" href="{{ url_for('ratings.user_recommended') }}">Recommended Ratings</a></button>
+              </li>
+              {% endif %}
               <li class="navbar-item">
                 <button> <a class="nav-link" href="{{ url_for('ratings.all_ratings') }}">All Ratings</a></button>
               </li>
               <li class="navbar-item">
                 <button> <a class="nav-link" href="{{ url_for('cheeses.all_cheeses') }}">Cheeses</a></button>
               </li>
+              <li class="navbar-item"><div class="spacer"></div></li>
+              {% if current_user.is_authenticated %}
               <li class="navbar-item">
+                <button> <a class="nav-link" href="{{ url_for('ratings.user_profile') }}">Your Ratings</a></button>
+              </li>
+              <li class="navbar-item">
+                <button> <a class="nav-link" href="{{ url_for('ratings.liked_ratings') }}">Liked Ratings</a></button>
+              </li>
+              <li class="navbar-item">
+              {% endif %}
               {% if not current_user.is_authenticated %}
                 <button> <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></button>
               </li>

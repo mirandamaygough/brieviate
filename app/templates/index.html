@@ -1,5 +1,39 @@
+<!-- main home page -->
 {% extends "base.html" %}
-
 {% block content %}
-<h1> Home </h1>
+<h1 class="page-title" style="text-align: left;">Welcome to Brieviate!</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-text-cheese">Brieviate</h5>
+        <p class="card-text">/briːvɪeɪt/</p>
+        <p class="card-text">verb</p>
+        <p class="card-text">1. To summarize or make concise.</p>
+        <p class="card-text">2. To rate a cheese on Brieviate.</p>
+        <p class="card-text" style="font-weight: bold;">Introducing Brieviate, the cheese rating website for everyone. We wanted to make finding good cheeses easier for all, even those on a tight budget. On Breviate you'll find all your classic supermarket cheeses, and you can share your favourites with the world. You might even find some new ones to try as well! Have an explore of our site, then when you're ready to start reviewing, make an account and you're ready to go - we can't wait to see what you discover!</p>
+    </div>
+</div>
+<h2 class="page-title-h2" style="text-align: left;">A few top reviews:</h2>
+<div class="row">
+    <div class="col-12">
+        {% for review in reviews %}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text-datetime">{{ review.date }}</p>
+                <h5 class="card-text-username"><a href="{{ url_for ('ratings.user_ratings', username=review.user) }}">@{{ review.user }}</a></h5>
+                <p class="card-text-brand">Brand: {{ review.brand }}</p>
+                <p class="card-text">Rating: 
+                    {% for i in range(review.rating) %}
+                    <span class="review-stars">&#9733;</span>
+                    {% endfor %}
+                    {% for i in range(5 - review.rating) %}
+                    <span class="review-stars">&#9734;</span>
+                {% endfor %}
+                <p class="card-text">Review: {{ review.review }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}

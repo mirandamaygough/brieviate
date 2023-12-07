@@ -1,20 +1,12 @@
-
+<!-- page to edit rating -->
 {% extends "base.html" %}
-
 {% block content %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    <div>
-        {{ messages[0] }}
-    </div>
-{% endif %}
-{% endwith %}
 <h1 class="page-title">Edit Rating</h1>
 <div class="form-container container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="form-group">
-                <form class="main-form" action="/edit_rating_handler?id={{ id }}" method="POST" name="edit_rating" autocomplete="off">
+                <form class="main-form" action="/edit_rating_handler?id={{ id }}" method="POST" onsubmit="validateReviewForm()" name="edit_rating" autocomplete="off">
                     {{ form.hidden_tag() }}
                     <div class="form-group main-form">
                         {{ form.cheese(class="form-group select", placeholder=form.cheese.label.text) }}

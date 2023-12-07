@@ -1,17 +1,9 @@
-<!-- page for all ratings -->
+<!-- page for user's recommended reviews -->
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <h1 class="page-title">All Ratings</h1>
+    <h1 class="page-title">Your Recommended Ratings</h1>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <form class="filter-select" method="GET" action="{{ url_for('ratings.all_ratings') }}">
-                    {{ review_filter_form.filter_option.label }} {{ review_filter_form.filter_option }}
-                    {{ review_filter_form.submit (class="btn btn-success go-button") }}
-                </form>  
-            </div>
-        </div>      
         <div class="row">
             <div class="col-12">
                 {% for review in reviews %}
@@ -29,12 +21,10 @@
                             <span class="review-stars">&#9734;</span>
                         {% endfor %}
                         <p class="card-text">Review: {{ review.review }}</p>
-                        {% if current_user.is_authenticated %}
                         <button class="like-button" review-id="{{ review.id }}">
                             &#129293;
                         </button>
                         <span id="likes-{{ review.id }}">{{ review.likes }}</span>
-                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}

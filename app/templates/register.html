@@ -1,22 +1,13 @@
-
+<!-- page to register new user -->
 {% extends "base.html" %}
-
 {% block content %}
-  <!-- <h2>Login</h2> -->
-    {% with messages = get_flashed_messages() %}
-  {% if messages %}
-      <div>
-          {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
-      </div>
-  {% endif %}
-  {% endwith %}
-    <h1 class="page-title">Register</h1>
+<h1 class="page-title">Register</h1>
   <div class="form-container container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <p style="font-size: 18px;"> Welcome! Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
             <div class="form-group">
-                <form class="main-form" action="/register" method="POST" name="register" autocomplete="off">
+                <form class="main-form" action="/register" method="POST"  onsubmit="return validateRegisterForm()" name="register" autocomplete="off">
                     {{ form.hidden_tag() }}
                     <div class="form-group main-form">
                         {{ form.email(class="form-group input", placeholder=form.email.label.text) }}
@@ -26,8 +17,16 @@
                     {{ form.submit (class="btn btn-success") }}
                 </form>
             </div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message">
+                    {{ messages[0] }} or go to <a href="{{ url_for('auth.login') }}">login page</a>.
+                </div>
+            {% endif %}
+            {% endwith %}
         </div>
     </div>
 </div>
+<script src='static/validation.js'></script>
 {% endblock %}
 
