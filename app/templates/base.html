@@ -19,7 +19,7 @@
     <body>
       <div>
         <!-- navigation bar -->
-        <nav class="navbar navbar-expand-sm navbar-dark">
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #00786c;">
           <div class="container-fluid">
             <!-- toggle button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,6 @@
                 <li class="navbar-item">
                   <button> <a class="nav-link" href="{{ url_for('cheeses.all_cheeses') }}">Cheeses</a></button>
                 </li>
-                <li class="navbar-item"><div class="spacer"></div></li>
                 {% if current_user.is_authenticated %}
                 <li class="navbar-item">
                   <button> <a class="nav-link" href="{{ url_for('ratings.user_profile') }}">Your Ratings</a></button>
@@ -72,6 +71,18 @@
             </div>
           </div>
         </nav>
+        <style>
+          @media (max-width: 576px) {
+            .navbar-collapse {
+              background-color: #00786c;;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              z-index: 9999;
+            }
+          }
+        </style>
 
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
