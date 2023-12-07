@@ -10,7 +10,7 @@ class LoginForm(FlaskForm):
     email = StringField('Email', default='', validators=[InputRequired(), Email()])
     password= PasswordField('Password', default='', validators=[InputRequired()])
     submit = SubmitField('Submit')
-    
+
 class RegisterForm(FlaskForm):
     email = StringField('Email', default='', validators=[InputRequired(), Email()])
     username = StringField('Username', default='', validators=[InputRequired()])
@@ -18,18 +18,20 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class ReviewForm(FlaskForm):
+    # get all cheeses from text file as options
     choices=[]
     @staticmethod
     def get_cheeses():
         with app.app_context():
             cheeses = [(cheese.name) for cheese in Cheese.query.all()]
             return cheeses
+    # create form fields
     cheese = SelectField('Select a Cheese', choices=get_cheeses(), validators=[InputRequired()])
     brand = StringField('Brand', default='', validators=[InputRequired()])
     rating = IntegerField('Rating', default=0)
     review = TextAreaField('Review', default='', validators=[InputRequired()])
     submit = SubmitField('Submit')
-
+    # initialise form
     def __init__(self, *args, **kwargs):
         super(ReviewForm, self).__init__(*args, **kwargs)
         self.choices = self.get_cheeses()
