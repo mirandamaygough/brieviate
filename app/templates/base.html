@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="navbar-item">
-                  <button> <a class="nav-link" href="{{ url_for('ratings.index') }}"><img class="logo-icon" src="static/logo.png" alt="brieviate logo with a block of cheese"></a></button>
+                  <button> <a class="nav-link" href="{{ url_for('ratings.index') }}"><img class="logo-icon" src="{{ url_for('static', filename='logo.png') }}" alt="brieviate logo with a block of cheese"></a></button>
                 </li>
                 {% if current_user.is_authenticated %}
                 <li class="navbar-item">
